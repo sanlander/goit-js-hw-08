@@ -10,6 +10,7 @@ refs.feedbackForm.addEventListener('input', throttle(onFormInput, 500));
 refs.feedbackForm.addEventListener('submit', onFormSubmit);
 
 const STORAGE_KEY = 'feedback-form-state';
+
 const formData = {};
 currentTextOnForm();
 
@@ -37,9 +38,11 @@ function currentTextOnForm() {
     const { email, message } = saveText;
     if (email) {
       refs.formEmail.value = email;
+      formData.email = email;
     }
     if (message) {
       refs.formTextArea.value = message;
+      formData.message = message;
     }
   }
 }
